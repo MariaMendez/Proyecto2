@@ -3,12 +3,11 @@ Imports AnalizadorEstructurasEspanol.ObtieneTextoArchivo
 Public Class ResultadoDelAnalisis
 
     Public Sub ObtieneElementos(ByVal textoArchivo As String)
-        Dim administrador = New AdministradorEstructuras
         Dim pantallaClasificar = New PantallaClasificarPalabras
-        Dim verbos As String() = administrador.AdministradorVerbos()
-        Dim articulos As String() = administrador.AdministradorArticulos()
-        Dim vocales As String() = administrador.AdministradorVocales()
-        Dim preposiciones As String() = administrador.AdministradorPreposiones()
+        Dim verbos As ArrayList = AdministradorEstructuras.EnviaVerbos()
+        Dim articulos As ArrayList = AdministradorEstructuras.EnviaArticulos()
+        Dim vocales As ArrayList = AdministradorEstructuras.EnviaVocales()
+        Dim preposiciones As ArrayList = AdministradorEstructuras.EnviaPreposiciones()
         Dim palabrasIdentificadas As New List(Of String)
         Dim cantidadVerbos As Integer = 0
         Dim cantidadArticulos As Integer = 0
@@ -19,10 +18,11 @@ Public Class ResultadoDelAnalisis
         Dim arrayPalabras() As String, i As Integer
         arrayPalabras = Strings.Split(textoArchivo, " ")
 
-        For index = 0 To verbos.GetUpperBound(0)
+        For index = 0 To verbos.Count - 1
             For i = 0 To UBound(arrayPalabras)
                 palabra = arrayPalabras(i)
-                If palabra = (verbos.GetValue(index).ToString) Then
+                If palabra = (verbos.Item(index).ToString) Then
+                    'Console.WriteLine(verbos.Item(1))
                     cantidadVerbos = cantidadVerbos + 1
                     palabrasIdentificadas.Add(palabra)
                 End If
@@ -32,28 +32,28 @@ Public Class ResultadoDelAnalisis
             ' End If
         Next
         txbVerbos.Text = cantidadVerbos
-        For index = 0 To articulos.GetUpperBound(0)
+        For index = 0 To articulos.Count - 1
             For i = 0 To UBound(arrayPalabras)
                 palabra = arrayPalabras(i)
-                If palabra = (articulos.GetValue(index).ToString) Then
+                If palabra = (articulos.Item(index).ToString) Then
                     cantidadArticulos = cantidadArticulos + 1
                     palabrasIdentificadas.Add(palabra)
                 End If
             Next i
         Next
         txbArticulos.Text = cantidadArticulos
-        For index = 0 To vocales.GetUpperBound(0)
+        For index = 0 To vocales.Count - 1
             For i = 1 To tamañoTexto
-                If Mid(textoArchivo, i, 1).Contains(vocales.GetValue(index).ToString) Then
+                If Mid(textoArchivo, i, 1).Contains(vocales.Item(index).ToString) Then
                     cantidadVocales = cantidadVocales + 1
                 End If
             Next
         Next
         txbVocales.Text = cantidadVocales
-        For index = 0 To preposiciones.GetUpperBound(0)
+        For index = 0 To preposiciones.Count - 1
             For i = 0 To UBound(arrayPalabras)
                 palabra = arrayPalabras(i)
-                If palabra = (preposiciones.GetValue(index).ToString) Then
+                If palabra = (preposiciones.Item(index).ToString) Then
                     cantidadPreposiciones = cantidadPreposiciones + 1
                     palabrasIdentificadas.Add(palabra)
                 End If
@@ -79,7 +79,12 @@ Public Class ResultadoDelAnalisis
             PantallaClasificarPalabras.Show()
         End If
         If (result = DialogResult.No) Then
-            MessageBox.Show("adios")
+            Me.Close()
+            PantallaPrincipal.BringToFront()
         End If
+    End Sub
+
+    Private Sub ResultadoDelAnalisis_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

@@ -9,7 +9,7 @@
     End Sub
 
     Private Sub BtnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        Form1.RellenaCampos()
-        Form1.Show()
+
+     
     End Sub
 End Class

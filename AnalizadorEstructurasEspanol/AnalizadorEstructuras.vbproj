@@ -73,10 +73,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdministradorEstructuras.vb" />
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="PantallaAdministrar.Designer.vb">
+      <DependentUpon>PantallaAdministrar.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form1.vb">
+    <Compile Include="PantallaAdministrar.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ObtieneTextoArchivo.vb" />
@@ -108,6 +108,12 @@
     <Compile Include="PantallaClasificarPalabras.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PantallaPrincipal.Designer.vb">
+      <DependentUpon>PantallaPrincipal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PantallaPrincipal.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ResultadoDelAnalisis.Designer.vb">
       <DependentUpon>ResultadoDelAnalisis.vb</DependentUpon>
     </Compile>
@@ -116,8 +122,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="PantallaAdministrar.resx">
+      <DependentUpon>PantallaAdministrar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PantallaBuscarArchivo.resx">
       <DependentUpon>PantallaBuscarArchivo.vb</DependentUpon>
@@ -130,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PantallaClasificarPalabras.resx">
       <DependentUpon>PantallaClasificarPalabras.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PantallaPrincipal.resx">
+      <DependentUpon>PantallaPrincipal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ResultadoDelAnalisis.resx">
       <DependentUpon>ResultadoDelAnalisis.vb</DependentUpon>
@@ -149,6 +158,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\libro-abierto-300x207.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anadir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupa-para-buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salida.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\libros.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pregunta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\libro-abierto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="verbos.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

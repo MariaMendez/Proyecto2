@@ -143,7 +143,7 @@ Partial Class ResultadoDelAnalisis
         Me.btnAceptar.BackColor = System.Drawing.SystemColors.Control
         Me.btnAceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAceptar.ForeColor = System.Drawing.Color.Teal
-        Me.btnAceptar.Location = New System.Drawing.Point(142, 279)
+        Me.btnAceptar.Location = New System.Drawing.Point(142, 275)
         Me.btnAceptar.Name = "btnAceptar"
         Me.btnAceptar.Size = New System.Drawing.Size(80, 39)
         Me.btnAceptar.TabIndex = 3

@@ -1,18 +1,226 @@
-﻿Public Class AdministradorEstructuras
-    Public Function AdministradorVerbos() As String()
-        Dim verbos = {"abrir", "amar", "aprender", "asesinar", "beber", "bailar", "buscar", "callar", "conocer", "conseguir", "decir", "dejar", "doler", "encontrar", "entender", "escribir", "faltar", "forzar", "funcionar", "ganar", "gritar", "gustar", "intentar", "ir", "lanzar", "leer", "limpiar", "mentir", "mirar", "mover", "necesitar", "negociar", "ocurrir", "parar", "parecer", "partir", "quedar", "quemar", "querer", "recibir", "reconocer", "saber", "salir", "ser", "tardar", "tener", "usar", "vender", "ver", "venir"}
-        Return verbos
+﻿Imports System.IO
+Imports System.Reflection
+Imports System.Text
+
+Public Class AdministradorEstructuras
+    Shared verbos As New ArrayList()
+    Shared articulos As New ArrayList()
+    Shared vocales As New ArrayList()
+    Shared preposiciones As New ArrayList()
+    Shared verbos2 As New ArrayList
+    Shared articulos2 As ArrayList
+    Shared vocales2 As ArrayList
+    Shared preposiciones2 As ArrayList
+    Public Shared Sub AsignaArraylistVerbos()
+
+        Using Reader As New StreamReader("C:\prueba\verbos.txt")
+            While Reader.EndOfStream = False
+                Dim palabra As String = Nothing
+                Dim arrayPalabras As String(), i As Integer
+                arrayPalabras = Strings.Split(Reader.ReadLine().TrimEnd, " ")
+                For i = 0 To UBound(arrayPalabras)
+                    palabra = arrayPalabras(i)
+                    verbos.Add(palabra)
+                Next i
+            End While
+        End Using
+    End Sub
+    Public Shared Sub AsignaArraylistArticulos()
+
+        Using Reader As New StreamReader("C:\prueba\articulos.txt")
+            While Reader.EndOfStream = False
+                Dim palabra As String = Nothing
+                Dim arrayPalabras As String(), i As Integer
+                arrayPalabras = Strings.Split(Reader.ReadLine().TrimEnd, " ")
+                For i = 0 To UBound(arrayPalabras)
+                    palabra = arrayPalabras(i)
+                    articulos.Add(palabra)
+                Next i
+            End While
+        End Using
+    End Sub
+    Public Shared Sub AsignaArraylistVocales()
+
+        Using Reader As New StreamReader("C:\prueba\vocales.txt")
+            While Reader.EndOfStream = False
+                Dim palabra As String = Nothing
+                Dim arrayPalabras As String(), i As Integer
+                arrayPalabras = Strings.Split(Reader.ReadLine().TrimEnd, " ")
+                For i = 0 To UBound(arrayPalabras)
+                    palabra = arrayPalabras(i)
+                    vocales.Add(palabra)
+                Next i
+            End While
+        End Using
+    End Sub
+    Public Shared Sub AsignaArraylistPreposiciones()
+
+        Using Reader As New StreamReader("C:\prueba\preposiciones.txt")
+            While Reader.EndOfStream = False
+                Dim palabra As String = Nothing
+                Dim arrayPalabras As String(), i As Integer
+                arrayPalabras = Strings.Split(Reader.ReadLine().TrimEnd, " ")
+                For i = 0 To UBound(arrayPalabras)
+                    palabra = arrayPalabras(i)
+                    preposiciones.Add(palabra)
+                Next i
+            End While
+        End Using
+    End Sub
+
+    Public Shared Sub AñadeEstructura(ByVal estructura As String, ByVal palabra As String)
+        Select Case estructura
+            Case "Verbos"
+                AdministraVerbos(palabra)
+            Case "Articulos"
+                AdministraArticulos(palabra)
+            Case "Vocales"
+                AdministraVocales(palabra)
+            Case "Preposiciones"
+                AdministraPreposiones(palabra)
+            Case Else
+                MessageBox.Show("Elija una estructura válida")
+        End Select
+    End Sub
+
+    Public Shared Sub AdministraVerbos(ByVal verbo)
+        verbos.Add(verbo)
+        EnviaVerbos()
+    End Sub
+    Public Shared Sub AdministraArticulos(ByVal articulo)
+        articulos.Add(articulo)
+        EnviaArticulos()
+    End Sub
+    Public Shared Sub AdministraVocales(ByVal vocal)
+        vocales.Add(vocal)
+        EnviaVocales()
+    End Sub
+    Public Shared Sub AdministraPreposiones(ByVal preposicion)
+        preposiciones.Add(preposicion)
+        EnviaPreposiciones()
+    End Sub
+
+    Public Shared Function EnviaVerbos() As ArrayList
+        verbos2 = verbos
+        For Each obj In verbos2
+            Console.Write("   {0}", obj)
+        Next obj
+        Console.WriteLine()
+        Return verbos2
     End Function
-    Public Function AdministradorArticulos() As String()
-        Dim articulos = {"el", "la", "los", "las", "un", "una", "unos", "unas", "lo"}
-        Return articulos
+
+    Public Shared Function EnviaArticulos() As ArrayList
+        articulos2 = articulos
+        For Each obj In articulos
+            Console.WriteLine("   {0}", obj)
+        Next
+        Return articulos2
     End Function
-    Public Function AdministradorVocales() As String()
-        Dim vocales = {"a", "e", "i", "o", "u"}
-        Return vocales
+
+    Public Shared Function EnviaVocales() As ArrayList
+        Dim vocales2 As ArrayList
+        vocales2 = vocales
+        For Each obj In vocales
+            Console.WriteLine("   {0}", obj)
+        Next
+        Return vocales2
     End Function
-    Public Function AdministradorPreposiones() As String()
-        Dim preposiciones = {"a", "ante", "bajo", "cabe", "con", "contra", "de", "desde", "en", "entre", "hacia", "hasta", "para", "por", "según", "sin", "so", "sobre", "tras"}
-        Return preposiciones
+
+    Public Shared Function EnviaPreposiciones() As ArrayList
+        Dim preposiciones2 As ArrayList
+        preposiciones2 = preposiciones
+        For Each obj In preposiciones
+            Console.WriteLine("   {0}", obj)
+        Next
+        Return preposiciones2
     End Function
+    Public Shared Sub EliminaPalabra(ByVal estructuraEliminar, ByVal palabra)
+        Dim estructura As New ArrayList()
+        Select Case estructuraEliminar
+            Case "Verbos"
+                estructura = verbos
+            Case "Articulos"
+                estructura = articulos
+            Case "Vocales"
+                estructura = vocales
+            Case "Preposiciones"
+                estructura = preposiciones
+        End Select
+        Dim estructuraEliminada As New ArrayList()
+        Dim i As Integer = 0
+        Do While i <= estructura.Count - 1
+            If estructura.Item(i).ToString = palabra Then
+                estructura.RemoveAt(i)
+                estructuraEliminada = estructura
+            End If
+            i = i + 1
+        Loop
+        If estructuraEliminar = "Verbos" Then
+            verbos = estructuraEliminada
+        End If
+        If estructuraEliminar = "Articulos" Then
+            articulos = estructuraEliminada
+        End If
+        If estructuraEliminar = "Vocales" Then
+            vocales = estructuraEliminada
+        End If
+        If estructuraEliminar = "Preposiciones" Then
+            preposiciones = estructuraEliminada
+        End If
+        Dim obj As [Object]
+        For Each obj In estructuraEliminada
+            Console.Write("   {0}", obj)
+        Next obj
+        Console.WriteLine()
+    End Sub
+    Public Shared Sub GuardarArraylistVerbos()
+        Dim append As Boolean = True
+        Dim nombreArchivo As String = "c:\prueba\verbos.txt"
+        If (System.IO.File.Exists(nombreArchivo)) Then
+            append = False
+        End If
+        Using writer As System.IO.StreamWriter = New System.IO.StreamWriter(nombreArchivo, append)
+            For Each obj In verbos
+                writer.Write(obj + " ")
+            Next obj
+        End Using
+    End Sub
+    Public Shared Sub GuardarArraylistArticulos()
+        Dim append As Boolean = True
+        Dim nombreArchivo As String = "c:\prueba\articulos.txt"
+        If (System.IO.File.Exists(nombreArchivo)) Then
+            append = False
+        End If
+        Using writer As System.IO.StreamWriter = New System.IO.StreamWriter(nombreArchivo, append)
+            For Each obj In articulos
+                writer.Write(obj + " ")
+            Next obj
+        End Using
+    End Sub
+    Public Shared Sub GuardarArraylistVocales()
+        Dim append As Boolean = True
+        Dim nombreArchivo As String = "c:\prueba\vocales.txt"
+        If (System.IO.File.Exists(nombreArchivo)) Then
+            append = False
+        End If
+        Using writer As System.IO.StreamWriter = New System.IO.StreamWriter(nombreArchivo, append)
+            For Each obj In vocales
+                writer.Write(obj + " ")
+            Next obj
+        End Using
+
+    End Sub
+    Public Shared Sub GuardarArraylistPreposiciones()
+        Dim append As Boolean = True
+        Dim nombreArchivo As String = "c:\prueba\preposiciones.txt"
+        If (System.IO.File.Exists(nombreArchivo)) Then
+            append = False
+        End If
+        Using writer As System.IO.StreamWriter = New System.IO.StreamWriter(nombreArchivo, append)
+            For Each obj In preposiciones
+                writer.Write(obj + " ")
+            Next obj
+        End Using
+    End Sub
+
 End Class
