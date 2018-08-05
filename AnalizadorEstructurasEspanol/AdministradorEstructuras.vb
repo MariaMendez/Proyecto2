@@ -16,7 +16,7 @@ Public Class AdministradorEstructuras
 
     Public Shared Sub AsignaArraylistVerbos()
 
-        Using Reader As New StreamReader("C:\prueba\verbos.txt")
+        Using Reader As New StreamReader(".\Arraylist\verbos.txt")
             While Reader.EndOfStream = False
                 Dim palabra As String = Nothing
                 Dim arrayPalabras As String(), i As Integer
@@ -30,7 +30,7 @@ Public Class AdministradorEstructuras
     End Sub
     Public Shared Sub AsignaArraylistArticulos()
 
-        Using Reader As New StreamReader("C:\prueba\articulos.txt")
+        Using Reader As New StreamReader(".\Arraylist\articulos.txt")
             While Reader.EndOfStream = False
                 Dim palabra As String = Nothing
                 Dim arrayPalabras As String(), i As Integer
@@ -44,7 +44,7 @@ Public Class AdministradorEstructuras
     End Sub
     Public Shared Sub AsignaArraylistVocales()
 
-        Using Reader As New StreamReader("C:\prueba\vocales.txt")
+        Using Reader As New StreamReader(".\Arraylist\vocales.txt")
             While Reader.EndOfStream = False
                 Dim palabra As String = Nothing
                 Dim arrayPalabras As String(), i As Integer
@@ -58,7 +58,7 @@ Public Class AdministradorEstructuras
     End Sub
     Public Shared Sub AsignaArraylistPreposiciones()
 
-        Using Reader As New StreamReader("C:\prueba\preposiciones.txt")
+        Using Reader As New StreamReader(".\Arraylist\preposiciones.txt")
             While Reader.EndOfStream = False
                 Dim palabra As String = Nothing
                 Dim arrayPalabras As String(), i As Integer
@@ -72,7 +72,7 @@ Public Class AdministradorEstructuras
     End Sub
     Public Shared Sub AsignaArraylistNuevasEstructuras()
 
-        Using Reader As New StreamReader("C:\prueba\estructuras.txt")
+        Using Reader As New StreamReader(".\Arraylist\estructuras.txt")
             While Reader.EndOfStream = False
                 Dim palabra As String = Nothing
                 Dim arrayPalabras As String(), i As Integer
@@ -199,10 +199,11 @@ Public Class AdministradorEstructuras
     End Sub
     Public Shared Sub GuardarArraylistVerbos()
         Dim append As Boolean = True
-        Dim nombreArchivo As String = "c:\prueba\verbos.txt"
+        Dim nombreArchivo As String = ".\Arraylist\verbos.txt"
         If (System.IO.File.Exists(nombreArchivo)) Then
             append = False
         End If
+        
         Using writer As System.IO.StreamWriter = New System.IO.StreamWriter(nombreArchivo, append)
             For Each obj In verbos
                 writer.Write(obj + " ")
@@ -211,7 +212,7 @@ Public Class AdministradorEstructuras
     End Sub
     Public Shared Sub GuardarArraylistArticulos()
         Dim append As Boolean = True
-        Dim nombreArchivo As String = "c:\prueba\articulos.txt"
+        Dim nombreArchivo As String = ".\Arraylist\articulos.txt"
         If (System.IO.File.Exists(nombreArchivo)) Then
             append = False
         End If
@@ -223,7 +224,7 @@ Public Class AdministradorEstructuras
     End Sub
     Public Shared Sub GuardarArraylistVocales()
         Dim append As Boolean = True
-        Dim nombreArchivo As String = "c:\prueba\vocales.txt"
+        Dim nombreArchivo As String = ".\Arraylist\vocales.txt"
         If (System.IO.File.Exists(nombreArchivo)) Then
             append = False
         End If
@@ -236,7 +237,7 @@ Public Class AdministradorEstructuras
     End Sub
     Public Shared Sub GuardarArraylistPreposiciones()
         Dim append As Boolean = True
-        Dim nombreArchivo As String = "c:\prueba\preposiciones.txt"
+        Dim nombreArchivo As String = ".\Arraylist\preposiciones.txt"
         If (System.IO.File.Exists(nombreArchivo)) Then
             append = False
         End If
@@ -250,7 +251,7 @@ Public Class AdministradorEstructuras
     Public Shared Sub AgregaEstructura(ByVal nombreEstructura As String)
         estructura.Add(nombreEstructura)
         Dim append As Boolean = True
-        Dim nombreArchivo As String = "c:\prueba\estructuras.txt"
+        Dim nombreArchivo As String = ".\Arraylist\estructuras.txt"
         If (System.IO.File.Exists(nombreArchivo)) Then
             append = False
         End If
