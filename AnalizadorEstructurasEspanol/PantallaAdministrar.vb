@@ -1,16 +1,22 @@
 ﻿Imports System.IO
 Imports AnalizadorEstructurasEspanol.AdministradorEstructuras
 Public Class PantallaAdministrar
+    Dim estructuras As New ArrayList()
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnAñadir.Click
         AñadeEstructura(cbxEstructuras.SelectedItem, txtPalabra.Text)
+
     End Sub
 
     Public Sub RellenaCampos()
+        AdministradorEstructuras.EnviaEstructura()
         cbxEstructuras.Items.Add("Verbos")
         cbxEstructuras.Items.Add("Articulos")
         cbxEstructuras.Items.Add("Preposiciones")
         cbxEstructuras.Items.Add("Vocales")
+        For Each item In estructuras
+            cbxEstructuras.Items.Add(item)
+        Next
 
     End Sub
     Private Sub Cabezera()
@@ -38,5 +44,8 @@ Public Class PantallaAdministrar
         GuardarArraylistPreposiciones()
         Close()
         PantallaPrincipal.BringToFront()
+    End Sub
+    Public Sub RecibeEstructuras(ByVal estructuraAnadir As ArrayList)
+        estructuras = estructuraAnadir
     End Sub
 End Class

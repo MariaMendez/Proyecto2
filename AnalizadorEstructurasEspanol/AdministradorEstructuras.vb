@@ -11,6 +11,9 @@ Public Class AdministradorEstructuras
     Shared articulos2 As ArrayList
     Shared vocales2 As ArrayList
     Shared preposiciones2 As ArrayList
+    Shared estructura As New ArrayList()
+    Shared nuevaEstructura As New Dictionary(Of String, List(Of String))()
+
     Public Shared Sub AsignaArraylistVerbos()
 
         Using Reader As New StreamReader("C:\prueba\verbos.txt")
@@ -67,6 +70,20 @@ Public Class AdministradorEstructuras
             End While
         End Using
     End Sub
+    Public Shared Sub AsignaArraylistNuevasEstructuras()
+
+        Using Reader As New StreamReader("C:\prueba\estructuras.txt")
+            While Reader.EndOfStream = False
+                Dim palabra As String = Nothing
+                Dim arrayPalabras As String(), i As Integer
+                arrayPalabras = Strings.Split(Reader.ReadLine().TrimEnd, " ")
+                For i = 0 To UBound(arrayPalabras)
+                    palabra = arrayPalabras(i)
+                    estructura.Add(palabra)
+                Next i
+            End While
+        End Using
+    End Sub
 
     Public Shared Sub AñadeEstructura(ByVal estructura As String, ByVal palabra As String)
         Select Case estructura
@@ -79,7 +96,7 @@ Public Class AdministradorEstructuras
             Case "Preposiciones"
                 AdministraPreposiones(palabra)
             Case Else
-                MessageBox.Show("Elija una estructura válida")
+                AdministraNuevasEstructuras(estructura, palabra)
         End Select
     End Sub
 
@@ -99,7 +116,13 @@ Public Class AdministradorEstructuras
         preposiciones.Add(preposicion)
         EnviaPreposiciones()
     End Sub
-
+    Public Shared Sub AdministraNuevasEstructuras(ByVal estructura As String, ByVal palabra As String)
+        If nuevaEstructura.ContainsKey(estructura) Then
+            nuevaEstructura(estructura).Add(palabra)
+        Else
+            nuevaEstructura.Add(estructura, New List(Of String)(New String() {palabra}))
+        End If
+    End Sub
     Public Shared Function EnviaVerbos() As ArrayList
         verbos2 = verbos
         For Each obj In verbos2
@@ -169,6 +192,7 @@ Public Class AdministradorEstructuras
         End If
         Dim obj As [Object]
         For Each obj In estructuraEliminada
+
             Console.Write("   {0}", obj)
         Next obj
         Console.WriteLine()
@@ -221,6 +245,23 @@ Public Class AdministradorEstructuras
                 writer.Write(obj + " ")
             Next obj
         End Using
+    End Sub
+
+    Public Shared Sub AgregaEstructura(ByVal nombreEstructura As String)
+        estructura.Add(nombreEstructura)
+        Dim append As Boolean = True
+        Dim nombreArchivo As String = "c:\prueba\estructuras.txt"
+        If (System.IO.File.Exists(nombreArchivo)) Then
+            append = False
+        End If
+        Using writer As System.IO.StreamWriter = New System.IO.StreamWriter(nombreArchivo, append)
+            For Each obj In estructura
+                writer.Write(obj + " ")
+            Next obj
+        End Using
+    End Sub
+    Public Shared Sub EnviaEstructura()
+        PantallaAdministrar.RecibeEstructuras(estructura)
     End Sub
 
 End Class
