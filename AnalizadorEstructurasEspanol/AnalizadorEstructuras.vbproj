@@ -177,8 +177,5 @@
   <ItemGroup>
     <None Include="Resources\libro-abierto.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="verbos.txt" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -8,11 +8,13 @@ Public Class ResultadoDelAnalisis
         Dim articulos As ArrayList = AdministradorEstructuras.EnviaArticulos()
         Dim vocales As ArrayList = AdministradorEstructuras.EnviaVocales()
         Dim preposiciones As ArrayList = AdministradorEstructuras.EnviaPreposiciones()
+        Dim otros As ArrayList = AdministradorEstructuras.EnviaOtros()
         Dim palabrasIdentificadas As New List(Of String)
         Dim cantidadVerbos As Integer = 0
         Dim cantidadArticulos As Integer = 0
         Dim cantidadVocales As Integer = 0
         Dim cantidadPreposiciones As Integer = 0
+        Dim cantidadOtros As Integer = 0
         Dim tamañoTexto As Integer = Len(textoArchivo)
         Dim palabra As String = Nothing
         Dim arrayPalabras() As String, i As Integer
@@ -61,6 +63,17 @@ Public Class ResultadoDelAnalisis
 
         Next
         txbPreposiciones.Text = cantidadPreposiciones
+        For index = 0 To otros.Count - 1
+            For i = 0 To UBound(arrayPalabras)
+                palabra = arrayPalabras(i)
+                If palabra = (otros.Item(index).ToString) Then
+                    cantidadOtros = cantidadOtros + 1
+                    palabrasIdentificadas.Add(palabra)
+                End If
+            Next i
+
+        Next
+        txbOtros.Text = cantidadOtros
         Dim arrayPalabras2() As String
         Dim palabrasSinIdentificar As String = String.Join(" ", arrayPalabras.Except(palabrasIdentificadas))
         arrayPalabras2 = Strings.Split(palabrasSinIdentificar, " ")
@@ -84,7 +97,5 @@ Public Class ResultadoDelAnalisis
         End If
     End Sub
 
-    Private Sub ResultadoDelAnalisis_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-    End Sub
 End Class

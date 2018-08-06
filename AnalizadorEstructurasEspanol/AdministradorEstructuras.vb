@@ -7,10 +7,12 @@ Public Class AdministradorEstructuras
     Shared articulos As New ArrayList()
     Shared vocales As New ArrayList()
     Shared preposiciones As New ArrayList()
+    Shared otros As New ArrayList()
     Shared verbos2 As New ArrayList
     Shared articulos2 As ArrayList
     Shared vocales2 As ArrayList
     Shared preposiciones2 As ArrayList
+    Shared otros2 As ArrayList
     Shared estructura As New ArrayList()
     Shared nuevaEstructura As New Dictionary(Of String, List(Of String))()
 
@@ -70,16 +72,17 @@ Public Class AdministradorEstructuras
             End While
         End Using
     End Sub
-    Public Shared Sub AsignaArraylistNuevasEstructuras()
 
-        Using Reader As New StreamReader(".\Arraylist\estructuras.txt")
+    Public Shared Sub AsignaArraylistOtros()
+
+        Using Reader As New StreamReader(".\Arraylist\otros.txt")
             While Reader.EndOfStream = False
                 Dim palabra As String = Nothing
                 Dim arrayPalabras As String(), i As Integer
                 arrayPalabras = Strings.Split(Reader.ReadLine().TrimEnd, " ")
                 For i = 0 To UBound(arrayPalabras)
                     palabra = arrayPalabras(i)
-                    estructura.Add(palabra)
+                    otros.Add(palabra)
                 Next i
             End While
         End Using
@@ -95,8 +98,10 @@ Public Class AdministradorEstructuras
                 AdministraVocales(palabra)
             Case "Preposiciones"
                 AdministraPreposiones(palabra)
+            Case "Otros"
+                AdministraOtros(palabra)
             Case Else
-                AdministraNuevasEstructuras(estructura, palabra)
+                MessageBox.Show("Elija una estructura valida")
         End Select
     End Sub
 
@@ -116,13 +121,11 @@ Public Class AdministradorEstructuras
         preposiciones.Add(preposicion)
         EnviaPreposiciones()
     End Sub
-    Public Shared Sub AdministraNuevasEstructuras(ByVal estructura As String, ByVal palabra As String)
-        If nuevaEstructura.ContainsKey(estructura) Then
-            nuevaEstructura(estructura).Add(palabra)
-        Else
-            nuevaEstructura.Add(estructura, New List(Of String)(New String() {palabra}))
-        End If
+    Public Shared Sub AdministraOtros(ByVal otro)
+        otros.Add(otro)
+        EnviaOtros()
     End Sub
+
     Public Shared Function EnviaVerbos() As ArrayList
         verbos2 = verbos
         For Each obj In verbos2
@@ -156,6 +159,14 @@ Public Class AdministradorEstructuras
             Console.WriteLine("   {0}", obj)
         Next
         Return preposiciones2
+    End Function
+    Public Shared Function EnviaOtros() As ArrayList
+        otros2 = otros
+        For Each obj In otros2
+            Console.Write("   {0}", obj)
+        Next obj
+        Console.WriteLine()
+        Return otros2
     End Function
     Public Shared Sub EliminaPalabra(ByVal estructuraEliminar, ByVal palabra)
         Dim estructura As New ArrayList()
@@ -247,22 +258,42 @@ Public Class AdministradorEstructuras
             Next obj
         End Using
     End Sub
-
-    Public Shared Sub AgregaEstructura(ByVal nombreEstructura As String)
-        estructura.Add(nombreEstructura)
+    Public Shared Sub GuardarArraylistOtros()
         Dim append As Boolean = True
-        Dim nombreArchivo As String = ".\Arraylist\estructuras.txt"
+        Dim nombreArchivo As String = ".\Arraylist\otros.txt"
         If (System.IO.File.Exists(nombreArchivo)) Then
             append = False
         End If
         Using writer As System.IO.StreamWriter = New System.IO.StreamWriter(nombreArchivo, append)
-            For Each obj In estructura
+            For Each obj In otros
                 writer.Write(obj + " ")
             Next obj
         End Using
     End Sub
-    Public Shared Sub EnviaEstructura()
-        PantallaAdministrar.RecibeEstructuras(estructura)
+
+    Public Shared Sub AgregaEstructura(ByVal palabras As List(Of String), ByVal nombreEstructura As String)
+        Select Case nombreEstructura
+            Case "Verbos"
+                For Each item In palabras
+                    verbos.Add(item)
+                Next
+            Case "Articulos"
+                For Each item In palabras
+                    articulos.Add(item)
+                Next
+            Case "Preposiciones"
+                For Each item In palabras
+                    preposiciones.Add(item)
+                Next
+            Case "Vocales"
+                For Each item In palabras
+                    vocales.Add(item)
+                Next
+            Case "Otros"
+                For Each item In palabras
+                    otros.Add(item)
+                Next
+        End Select
     End Sub
 
 End Class

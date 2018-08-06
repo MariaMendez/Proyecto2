@@ -12,6 +12,6 @@
         AdministradorEstructuras.AsignaArraylistArticulos()
         AdministradorEstructuras.AsignaArraylistVocales()
         AdministradorEstructuras.AsignaArraylistPreposiciones()
-        AdministradorEstructuras.AsignaArraylistNuevasEstructuras()
+        AdministradorEstructuras.AsignaArraylistOtros()
     End Sub
 End Class

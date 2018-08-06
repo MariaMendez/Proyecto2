@@ -22,23 +22,16 @@ Partial Class PantallaClasificarPalabras
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.txbPreclasificar = New System.Windows.Forms.TextBox()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.lblPreclasificar = New System.Windows.Forms.Label()
         Me.lvbPalabras = New System.Windows.Forms.ListView()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnAñadir = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.cbxEstructuras = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'txbPreclasificar
-        '
-        Me.txbPreclasificar.Location = New System.Drawing.Point(76, 28)
-        Me.txbPreclasificar.Name = "txbPreclasificar"
-        Me.txbPreclasificar.Size = New System.Drawing.Size(143, 20)
-        Me.txbPreclasificar.TabIndex = 1
         '
         'btnGuardar
         '
@@ -85,25 +78,25 @@ Partial Class PantallaClasificarPalabras
         Me.Label1.TabIndex = 8
         Me.Label1.Text = "Palabras sin clasificar:"
         '
-        'Button1
+        'btnAñadir
         '
-        Me.Button1.BackColor = System.Drawing.SystemColors.Control
-        Me.Button1.ForeColor = System.Drawing.Color.Teal
-        Me.Button1.Image = Global.AnalizadorEstructurasEspanol.My.Resources.Resources.anadir
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(260, 62)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(66, 31)
-        Me.Button1.TabIndex = 9
-        Me.Button1.Text = "    Añadir"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btnAñadir.BackColor = System.Drawing.SystemColors.Control
+        Me.btnAñadir.ForeColor = System.Drawing.Color.Teal
+        Me.btnAñadir.Image = Global.AnalizadorEstructurasEspanol.My.Resources.Resources.anadir
+        Me.btnAñadir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAñadir.Location = New System.Drawing.Point(260, 62)
+        Me.btnAñadir.Name = "btnAñadir"
+        Me.btnAñadir.Size = New System.Drawing.Size(66, 31)
+        Me.btnAñadir.TabIndex = 9
+        Me.btnAñadir.Text = "    Añadir"
+        Me.btnAñadir.UseVisualStyleBackColor = False
         '
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.cbxEstructuras)
+        Me.Panel1.Controls.Add(Me.btnAñadir)
         Me.Panel1.Controls.Add(Me.lblPreclasificar)
-        Me.Panel1.Controls.Add(Me.txbPreclasificar)
         Me.Panel1.Location = New System.Drawing.Point(265, 63)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(333, 100)
@@ -119,6 +112,14 @@ Partial Class PantallaClasificarPalabras
         Me.Label2.Size = New System.Drawing.Size(96, 15)
         Me.Label2.TabIndex = 12
         Me.Label2.Text = "Preclasificación:"
+        '
+        'cbxEstructuras
+        '
+        Me.cbxEstructuras.FormattingEnabled = True
+        Me.cbxEstructuras.Location = New System.Drawing.Point(93, 31)
+        Me.cbxEstructuras.Name = "cbxEstructuras"
+        Me.cbxEstructuras.Size = New System.Drawing.Size(135, 21)
+        Me.cbxEstructuras.TabIndex = 10
         '
         'PantallaClasificarPalabras
         '
@@ -140,12 +141,12 @@ Partial Class PantallaClasificarPalabras
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents txbPreclasificar As TextBox
     Friend WithEvents btnGuardar As Button
     Friend WithEvents lblPreclasificar As Label
     Friend WithEvents lvbPalabras As ListView
     Friend WithEvents Label1 As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnAñadir As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label2 As Label
+    Friend WithEvents cbxEstructuras As ComboBox
 End Class

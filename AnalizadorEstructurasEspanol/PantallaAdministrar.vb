@@ -9,15 +9,11 @@ Public Class PantallaAdministrar
     End Sub
 
     Public Sub RellenaCampos()
-        AdministradorEstructuras.EnviaEstructura()
         cbxEstructuras.Items.Add("Verbos")
         cbxEstructuras.Items.Add("Articulos")
         cbxEstructuras.Items.Add("Preposiciones")
         cbxEstructuras.Items.Add("Vocales")
-        For Each item In estructuras
-            cbxEstructuras.Items.Add(item)
-        Next
-
+        cbxEstructuras.Items.Add("Otros")
     End Sub
     Private Sub Cabezera()
         dgvEstructuras.Columns.Add(1, "Estructura")
@@ -42,6 +38,7 @@ Public Class PantallaAdministrar
         GuardarArraylistArticulos()
         GuardarArraylistVocales()
         GuardarArraylistPreposiciones()
+        GuardarArraylistOtros()
         Close()
         PantallaPrincipal.BringToFront()
     End Sub
