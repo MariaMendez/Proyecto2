@@ -22,7 +22,7 @@ Public Class ResultadoDelAnalisis
 
         For index = 0 To verbos.Count - 1
             For i = 0 To UBound(arrayPalabras)
-                palabra = arrayPalabras(i)
+                palabra = arrayPalabras(i).ToLower
                 If palabra = (verbos.Item(index).ToString) Then
                     'Console.WriteLine(verbos.Item(1))
                     cantidadVerbos = cantidadVerbos + 1
@@ -36,7 +36,7 @@ Public Class ResultadoDelAnalisis
         txbVerbos.Text = cantidadVerbos
         For index = 0 To articulos.Count - 1
             For i = 0 To UBound(arrayPalabras)
-                palabra = arrayPalabras(i)
+                palabra = arrayPalabras(i).ToLower
                 If palabra = (articulos.Item(index).ToString) Then
                     cantidadArticulos = cantidadArticulos + 1
                     palabrasIdentificadas.Add(palabra)
@@ -54,7 +54,7 @@ Public Class ResultadoDelAnalisis
         txbVocales.Text = cantidadVocales
         For index = 0 To preposiciones.Count - 1
             For i = 0 To UBound(arrayPalabras)
-                palabra = arrayPalabras(i)
+                palabra = arrayPalabras(i).ToLower
                 If palabra = (preposiciones.Item(index).ToString) Then
                     cantidadPreposiciones = cantidadPreposiciones + 1
                     palabrasIdentificadas.Add(palabra)
@@ -65,7 +65,7 @@ Public Class ResultadoDelAnalisis
         txbPreposiciones.Text = cantidadPreposiciones
         For index = 0 To otros.Count - 1
             For i = 0 To UBound(arrayPalabras)
-                palabra = arrayPalabras(i)
+                palabra = arrayPalabras(i).ToLower
                 If palabra = (otros.Item(index).ToString) Then
                     cantidadOtros = cantidadOtros + 1
                     palabrasIdentificadas.Add(palabra)
@@ -97,5 +97,7 @@ Public Class ResultadoDelAnalisis
         End If
     End Sub
 
+    Private Sub ResultadoDelAnalisis_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
 End Class

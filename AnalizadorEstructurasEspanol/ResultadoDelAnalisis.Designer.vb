@@ -25,6 +25,8 @@ Partial Class ResultadoDelAnalisis
         Me.txbVerbos = New System.Windows.Forms.TextBox()
         Me.lblVerbos = New System.Windows.Forms.Label()
         Me.grxResultadoAnalisis = New System.Windows.Forms.GroupBox()
+        Me.txbOtros = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.txbPreposiciones = New System.Windows.Forms.TextBox()
         Me.txbVocales = New System.Windows.Forms.TextBox()
         Me.txbArticulos = New System.Windows.Forms.TextBox()
@@ -32,8 +34,6 @@ Partial Class ResultadoDelAnalisis
         Me.lblVocales = New System.Windows.Forms.Label()
         Me.lblArticulos = New System.Windows.Forms.Label()
         Me.btnAceptar = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txbOtros = New System.Windows.Forms.TextBox()
         Me.grxResultadoAnalisis.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -78,6 +78,26 @@ Partial Class ResultadoDelAnalisis
         Me.grxResultadoAnalisis.TabIndex = 2
         Me.grxResultadoAnalisis.TabStop = False
         Me.grxResultadoAnalisis.Text = "Resultado del análisis:"
+        '
+        'txbOtros
+        '
+        Me.txbOtros.BackColor = System.Drawing.SystemColors.Control
+        Me.txbOtros.ForeColor = System.Drawing.SystemColors.WindowFrame
+        Me.txbOtros.Location = New System.Drawing.Point(102, 164)
+        Me.txbOtros.Name = "txbOtros"
+        Me.txbOtros.ReadOnly = True
+        Me.txbOtros.Size = New System.Drawing.Size(53, 21)
+        Me.txbOtros.TabIndex = 9
+        Me.txbOtros.Text = "0"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(6, 164)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(39, 15)
+        Me.Label1.TabIndex = 8
+        Me.Label1.Text = "Otros:"
         '
         'txbPreposiciones
         '
@@ -153,26 +173,6 @@ Partial Class ResultadoDelAnalisis
         Me.btnAceptar.TabIndex = 3
         Me.btnAceptar.Text = "Aceptar"
         Me.btnAceptar.UseVisualStyleBackColor = False
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 167)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(39, 15)
-        Me.Label1.TabIndex = 8
-        Me.Label1.Text = "Otros:"
-        '
-        'txbOtros
-        '
-        Me.txbOtros.BackColor = System.Drawing.SystemColors.Control
-        Me.txbOtros.ForeColor = System.Drawing.SystemColors.WindowFrame
-        Me.txbOtros.Location = New System.Drawing.Point(102, 164)
-        Me.txbOtros.Name = "txbOtros"
-        Me.txbOtros.ReadOnly = True
-        Me.txbOtros.Size = New System.Drawing.Size(53, 21)
-        Me.txbOtros.TabIndex = 9
-        Me.txbOtros.Text = "0"
         '
         'ResultadoDelAnalisis
         '

@@ -24,7 +24,7 @@ Public Class AdministradorEstructuras
                 Dim arrayPalabras As String(), i As Integer
                 arrayPalabras = Strings.Split(Reader.ReadLine().TrimEnd, " ")
                 For i = 0 To UBound(arrayPalabras)
-                    palabra = arrayPalabras(i)
+                    palabra = arrayPalabras(i).ToLower
                     verbos.Add(palabra)
                 Next i
             End While
@@ -38,7 +38,7 @@ Public Class AdministradorEstructuras
                 Dim arrayPalabras As String(), i As Integer
                 arrayPalabras = Strings.Split(Reader.ReadLine().TrimEnd, " ")
                 For i = 0 To UBound(arrayPalabras)
-                    palabra = arrayPalabras(i)
+                    palabra = arrayPalabras(i).ToLower
                     articulos.Add(palabra)
                 Next i
             End While
@@ -52,7 +52,7 @@ Public Class AdministradorEstructuras
                 Dim arrayPalabras As String(), i As Integer
                 arrayPalabras = Strings.Split(Reader.ReadLine().TrimEnd, " ")
                 For i = 0 To UBound(arrayPalabras)
-                    palabra = arrayPalabras(i)
+                    palabra = arrayPalabras(i).ToLower
                     vocales.Add(palabra)
                 Next i
             End While
@@ -66,7 +66,7 @@ Public Class AdministradorEstructuras
                 Dim arrayPalabras As String(), i As Integer
                 arrayPalabras = Strings.Split(Reader.ReadLine().TrimEnd, " ")
                 For i = 0 To UBound(arrayPalabras)
-                    palabra = arrayPalabras(i)
+                    palabra = arrayPalabras(i).ToLower
                     preposiciones.Add(palabra)
                 Next i
             End While
@@ -81,7 +81,7 @@ Public Class AdministradorEstructuras
                 Dim arrayPalabras As String(), i As Integer
                 arrayPalabras = Strings.Split(Reader.ReadLine().TrimEnd, " ")
                 For i = 0 To UBound(arrayPalabras)
-                    palabra = arrayPalabras(i)
+                    palabra = arrayPalabras(i).ToLower
                     otros.Add(palabra)
                 Next i
             End While
