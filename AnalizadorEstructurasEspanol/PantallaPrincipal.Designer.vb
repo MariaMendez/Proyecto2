@@ -67,12 +67,12 @@ Partial Class PantallaPrincipal
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Ravie", 20.25!, System.Drawing.FontStyle.Bold)
         Me.Label1.ForeColor = System.Drawing.Color.Teal
-        Me.Label1.Location = New System.Drawing.Point(-131, 21)
+        Me.Label1.Location = New System.Drawing.Point(-81, 21)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(810, 72)
+        Me.Label1.Size = New System.Drawing.Size(735, 72)
         Me.Label1.TabIndex = 3
-        Me.Label1.Text = "                Administrador de estructuras " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                de" &
-    " español"
+        Me.Label1.Text = "                Analizador de estructuras " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                de es" &
+    "pañol"
         '
         'PantallaPrincipal
         '
