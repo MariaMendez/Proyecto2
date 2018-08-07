@@ -43,7 +43,7 @@ Public Class PantallaGuardarResultado
     End Function
 
     Private Sub btnJason_Click(sender As Object, e As EventArgs) Handles btnJason.Click
-        File.WriteAllText(".\json\resultado.json", JsonConvert.SerializeObject(resultadosGuardar))
+        File.WriteAllText("...\json\resultado.json", JsonConvert.SerializeObject(resultadosGuardar))
         MessageBox.Show("Se ha guardado el JSON correctamente ",
                              "Guardar JSON",
                              MessageBoxButtons.OK)

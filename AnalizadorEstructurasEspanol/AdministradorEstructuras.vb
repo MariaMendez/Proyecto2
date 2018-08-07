@@ -18,7 +18,7 @@ Public Class AdministradorEstructuras
 
     Public Shared Sub AsignaArraylistVerbos()
 
-        Using Reader As New StreamReader(".\Arraylist\verbos.txt")
+        Using Reader As New StreamReader("...\Arraylist\verbos.txt")
             While Reader.EndOfStream = False
                 Dim palabra As String = Nothing
                 Dim arrayPalabras As String(), i As Integer
@@ -32,7 +32,7 @@ Public Class AdministradorEstructuras
     End Sub
     Public Shared Sub AsignaArraylistArticulos()
 
-        Using Reader As New StreamReader(".\Arraylist\articulos.txt")
+        Using Reader As New StreamReader("...\Arraylist\articulos.txt")
             While Reader.EndOfStream = False
                 Dim palabra As String = Nothing
                 Dim arrayPalabras As String(), i As Integer
@@ -46,7 +46,7 @@ Public Class AdministradorEstructuras
     End Sub
     Public Shared Sub AsignaArraylistVocales()
 
-        Using Reader As New StreamReader(".\Arraylist\vocales.txt")
+        Using Reader As New StreamReader("...\Arraylist\vocales.txt")
             While Reader.EndOfStream = False
                 Dim palabra As String = Nothing
                 Dim arrayPalabras As String(), i As Integer
@@ -60,7 +60,7 @@ Public Class AdministradorEstructuras
     End Sub
     Public Shared Sub AsignaArraylistPreposiciones()
 
-        Using Reader As New StreamReader(".\Arraylist\preposiciones.txt")
+        Using Reader As New StreamReader("...\Arraylist\preposiciones.txt")
             While Reader.EndOfStream = False
                 Dim palabra As String = Nothing
                 Dim arrayPalabras As String(), i As Integer
@@ -75,7 +75,7 @@ Public Class AdministradorEstructuras
 
     Public Shared Sub AsignaArraylistOtros()
 
-        Using Reader As New StreamReader(".\Arraylist\otros.txt")
+        Using Reader As New StreamReader("...\Arraylist\otros.txt")
             While Reader.EndOfStream = False
                 Dim palabra As String = Nothing
                 Dim arrayPalabras As String(), i As Integer
@@ -171,7 +171,7 @@ Public Class AdministradorEstructuras
     End Sub
     Public Shared Sub GuardarArraylistVerbos()
         Dim append As Boolean = True
-        Dim nombreArchivo As String = ".\Arraylist\verbos.txt"
+        Dim nombreArchivo As String = "...\Arraylist\verbos.txt"
         If (System.IO.File.Exists(nombreArchivo)) Then
             append = False
         End If
@@ -184,7 +184,7 @@ Public Class AdministradorEstructuras
     End Sub
     Public Shared Sub GuardarArraylistArticulos()
         Dim append As Boolean = True
-        Dim nombreArchivo As String = ".\Arraylist\articulos.txt"
+        Dim nombreArchivo As String = "...\Arraylist\articulos.txt"
         If (System.IO.File.Exists(nombreArchivo)) Then
             append = False
         End If
@@ -196,7 +196,7 @@ Public Class AdministradorEstructuras
     End Sub
     Public Shared Sub GuardarArraylistVocales()
         Dim append As Boolean = True
-        Dim nombreArchivo As String = ".\Arraylist\vocales.txt"
+        Dim nombreArchivo As String = "...\Arraylist\vocales.txt"
         If (System.IO.File.Exists(nombreArchivo)) Then
             append = False
         End If
@@ -209,7 +209,7 @@ Public Class AdministradorEstructuras
     End Sub
     Public Shared Sub GuardarArraylistPreposiciones()
         Dim append As Boolean = True
-        Dim nombreArchivo As String = ".\Arraylist\preposiciones.txt"
+        Dim nombreArchivo As String = "...\Arraylist\preposiciones.txt"
         If (System.IO.File.Exists(nombreArchivo)) Then
             append = False
         End If
@@ -221,7 +221,7 @@ Public Class AdministradorEstructuras
     End Sub
     Public Shared Sub GuardarArraylistOtros()
         Dim append As Boolean = True
-        Dim nombreArchivo As String = ".\Arraylist\otros.txt"
+        Dim nombreArchivo As String = "...\Arraylist\otros.txt"
         If (System.IO.File.Exists(nombreArchivo)) Then
             append = False
         End If
