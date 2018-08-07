@@ -31,4 +31,7 @@ Public Class PantallaBuscarArchivo
         Me.Close()
     End Sub
 
+    Private Sub PantallaBuscarArchivo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

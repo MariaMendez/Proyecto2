@@ -5,7 +5,9 @@ Public Class PantallaAdministrar
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnAñadir.Click
         AñadeEstructura(cbxEstructuras.SelectedItem, txtPalabra.Text)
-
+        MessageBox.Show("Se ha añadido corrrectamente",
+                             "Añadir",
+                             MessageBoxButtons.OK)
     End Sub
 
     Public Sub RellenaCampos()
@@ -25,8 +27,11 @@ Public Class PantallaAdministrar
         Call Cabezera()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         EliminaPalabra(cbxEstructuras.SelectedItem, txtPalabra.Text)
+        MessageBox.Show("Se ha eliminado corrrectamente",
+                            "Añadir",
+                            MessageBoxButtons.OK)
     End Sub
 
     Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click

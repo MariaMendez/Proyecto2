@@ -30,7 +30,7 @@ Partial Class PantallaAdministrar
         Me.dgvEstructuras = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnBuscar = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnAñadir = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnSalir = New System.Windows.Forms.Button()
@@ -92,7 +92,7 @@ Partial Class PantallaAdministrar
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.btnBuscar)
         Me.Panel1.Controls.Add(Me.cbxEstructuras)
-        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.btnEliminar)
         Me.Panel1.Controls.Add(Me.txtPalabra)
         Me.Panel1.Controls.Add(Me.btnAñadir)
         Me.Panel1.Location = New System.Drawing.Point(21, 22)
@@ -112,17 +112,17 @@ Partial Class PantallaAdministrar
         Me.btnBuscar.Text = "   Buscar"
         Me.btnBuscar.UseVisualStyleBackColor = False
         '
-        'Button1
+        'btnEliminar
         '
-        Me.Button1.BackColor = System.Drawing.SystemColors.Control
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(325, 38)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 25)
-        Me.Button1.TabIndex = 6
-        Me.Button1.Text = "    Eliminar"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btnEliminar.BackColor = System.Drawing.SystemColors.Control
+        Me.btnEliminar.Image = CType(resources.GetObject("btnEliminar.Image"), System.Drawing.Image)
+        Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnEliminar.Location = New System.Drawing.Point(325, 38)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(75, 25)
+        Me.btnEliminar.TabIndex = 6
+        Me.btnEliminar.Text = "    Eliminar"
+        Me.btnEliminar.UseVisualStyleBackColor = False
         '
         'btnAñadir
         '
@@ -184,7 +184,7 @@ Partial Class PantallaAdministrar
     Friend WithEvents lblEstructura As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents dgvEstructuras As DataGridView
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnEliminar As Button
     Friend WithEvents btnBuscar As Button
     Friend WithEvents btnSalir As Button
     Friend WithEvents Panel1 As Panel

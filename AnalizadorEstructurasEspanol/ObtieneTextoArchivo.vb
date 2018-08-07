@@ -34,7 +34,6 @@ Public Class ObtieneTextoArchivo
             For Each lineaArchivo In textoArchivo
                 'Console.WriteLine(lineaArchivo)
                 textoFinal += " " + lineaArchivo + " "
-                Console.WriteLine(textoFinal)
             Next
         End If
 

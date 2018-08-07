@@ -24,9 +24,9 @@ Partial Class PantallaPrincipal
     Private Sub InitializeComponent()
         Me.btnAdministrar = New System.Windows.Forms.Button()
         Me.btnExaminar = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pbxDiccionario = New System.Windows.Forms.PictureBox()
+        Me.lblAnalizadorEstructuras = New System.Windows.Forms.Label()
+        CType(Me.pbxDiccionario, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnAdministrar
@@ -53,25 +53,25 @@ Partial Class PantallaPrincipal
         Me.btnExaminar.Text = "Examinar"
         Me.btnExaminar.UseVisualStyleBackColor = False
         '
-        'PictureBox1
+        'pbxDiccionario
         '
-        Me.PictureBox1.Image = Global.AnalizadorEstructurasEspanol.My.Resources.Resources.libro_abierto
-        Me.PictureBox1.Location = New System.Drawing.Point(212, 124)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(281, 256)
-        Me.PictureBox1.TabIndex = 2
-        Me.PictureBox1.TabStop = False
+        Me.pbxDiccionario.Image = Global.AnalizadorEstructurasEspanol.My.Resources.Resources.libro_abierto
+        Me.pbxDiccionario.Location = New System.Drawing.Point(212, 124)
+        Me.pbxDiccionario.Name = "pbxDiccionario"
+        Me.pbxDiccionario.Size = New System.Drawing.Size(281, 256)
+        Me.pbxDiccionario.TabIndex = 2
+        Me.pbxDiccionario.TabStop = False
         '
-        'Label1
+        'lblAnalizadorEstructuras
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Ravie", 20.25!, System.Drawing.FontStyle.Bold)
-        Me.Label1.ForeColor = System.Drawing.Color.Teal
-        Me.Label1.Location = New System.Drawing.Point(-81, 21)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(735, 72)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "                Analizador de estructuras " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                de es" &
+        Me.lblAnalizadorEstructuras.AutoSize = True
+        Me.lblAnalizadorEstructuras.Font = New System.Drawing.Font("Ravie", 20.25!, System.Drawing.FontStyle.Bold)
+        Me.lblAnalizadorEstructuras.ForeColor = System.Drawing.Color.Teal
+        Me.lblAnalizadorEstructuras.Location = New System.Drawing.Point(-81, 21)
+        Me.lblAnalizadorEstructuras.Name = "lblAnalizadorEstructuras"
+        Me.lblAnalizadorEstructuras.Size = New System.Drawing.Size(735, 72)
+        Me.lblAnalizadorEstructuras.TabIndex = 3
+        Me.lblAnalizadorEstructuras.Text = "                Analizador de estructuras " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                de es" &
     "pañol"
         '
         'PantallaPrincipal
@@ -80,14 +80,14 @@ Partial Class PantallaPrincipal
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLight
         Me.ClientSize = New System.Drawing.Size(725, 422)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.lblAnalizadorEstructuras)
+        Me.Controls.Add(Me.pbxDiccionario)
         Me.Controls.Add(Me.btnExaminar)
         Me.Controls.Add(Me.btnAdministrar)
         Me.Name = "PantallaPrincipal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "PantallaPrincipal"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbxDiccionario, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -95,6 +95,6 @@ Partial Class PantallaPrincipal
 
     Friend WithEvents btnAdministrar As Button
     Friend WithEvents btnExaminar As Button
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Label1 As Label
+    Friend WithEvents pbxDiccionario As PictureBox
+    Friend WithEvents lblAnalizadorEstructuras As Label
 End Class

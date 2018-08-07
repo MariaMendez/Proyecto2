@@ -1,24 +1,25 @@
 ﻿Imports AnalizadorEstructurasEspanol.AdministradorEstructuras
 Imports AnalizadorEstructurasEspanol.ObtieneTextoArchivo
 Public Class ResultadoDelAnalisis
+    Dim pantallaClasificar = New PantallaClasificarPalabras
+    Dim verbos As ArrayList = AdministradorEstructuras.EnviaVerbos()
+    Dim articulos As ArrayList = AdministradorEstructuras.EnviaArticulos()
+    Dim vocales As ArrayList = AdministradorEstructuras.EnviaVocales()
+    Dim preposiciones As ArrayList = AdministradorEstructuras.EnviaPreposiciones()
+    Dim otros As ArrayList = AdministradorEstructuras.EnviaOtros()
+    Dim palabrasIdentificadas As New List(Of String)
+    Dim cantidadVerbos As Integer = 0
+    Dim cantidadArticulos As Integer = 0
+    Dim cantidadVocales As Integer = 0
+    Dim cantidadPreposiciones As Integer = 0
+    Dim cantidadOtros As Integer = 0
+    Dim palabra As String = Nothing
+    Dim arrayPalabras() As String, i As Integer
+    Dim resultados As New Dictionary(Of String, Integer)()
 
     Public Sub ObtieneElementos(ByVal textoArchivo As String)
-        Dim pantallaClasificar = New PantallaClasificarPalabras
-        Dim verbos As ArrayList = AdministradorEstructuras.EnviaVerbos()
-        Dim articulos As ArrayList = AdministradorEstructuras.EnviaArticulos()
-        Dim vocales As ArrayList = AdministradorEstructuras.EnviaVocales()
-        Dim preposiciones As ArrayList = AdministradorEstructuras.EnviaPreposiciones()
-        Dim otros As ArrayList = AdministradorEstructuras.EnviaOtros()
-        Dim palabrasIdentificadas As New List(Of String)
-        Dim cantidadVerbos As Integer = 0
-        Dim cantidadArticulos As Integer = 0
-        Dim cantidadVocales As Integer = 0
-        Dim cantidadPreposiciones As Integer = 0
-        Dim cantidadOtros As Integer = 0
         Dim tamañoTexto As Integer = Len(textoArchivo)
-        Dim palabra As String = Nothing
-        Dim arrayPalabras() As String, i As Integer
-        arrayPalabras = Strings.Split(textoArchivo, " ")
+        arrayPalabras = Strings.Split(textoArchivo.ToLower, " ")
 
         For index = 0 To verbos.Count - 1
             For i = 0 To UBound(arrayPalabras)
@@ -29,9 +30,6 @@ Public Class ResultadoDelAnalisis
                     palabrasIdentificadas.Add(palabra)
                 End If
             Next i
-            ' If textoArchivo.Contains(verbos.GetValue(index).ToString) Then
-            'cantidadVerbos = cantidadVerbos + 1
-            ' End If
         Next
         txbVerbos.Text = cantidadVerbos
         For index = 0 To articulos.Count - 1
@@ -83,21 +81,13 @@ Public Class ResultadoDelAnalisis
 
     Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
 
-        Dim result As Integer = MessageBox.Show("¿Desea clasificar las palabras no identificadas? ",
-                              "Clasificar",
-                              MessageBoxButtons.YesNo)
-        ' MessageBoxButtons.YesNo.GetName(1,"Sí")
-
-        If (result = DialogResult.Yes) Then
-            PantallaClasificarPalabras.Show()
-        End If
-        If (result = DialogResult.No) Then
-            Me.Close()
-            PantallaPrincipal.BringToFront()
-        End If
+        resultados.Add("Verbos", cantidadVerbos)
+        resultados.Add("Artículos", cantidadArticulos)
+        resultados.Add("Vocales", cantidadVocales)
+        resultados.Add("Preposiciones", cantidadPreposiciones)
+        resultados.Add("Otros", cantidadOtros)
+        PantallaGuardarResultado.RecibeResultados(resultados)
+        PantallaGuardarResultado.Show()
     End Sub
 
-    Private Sub ResultadoDelAnalisis_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
 End Class

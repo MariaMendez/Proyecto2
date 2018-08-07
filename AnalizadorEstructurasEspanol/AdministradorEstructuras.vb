@@ -8,11 +8,11 @@ Public Class AdministradorEstructuras
     Shared vocales As New ArrayList()
     Shared preposiciones As New ArrayList()
     Shared otros As New ArrayList()
-    Shared verbos2 As New ArrayList
-    Shared articulos2 As ArrayList
-    Shared vocales2 As ArrayList
-    Shared preposiciones2 As ArrayList
-    Shared otros2 As ArrayList
+    Shared verbosEnviar As New ArrayList
+    Shared articulosEnviar As ArrayList
+    Shared vocalesEnviar As ArrayList
+    Shared preposicionesEnviar As ArrayList
+    Shared otrosEnviar As ArrayList
     Shared estructura As New ArrayList()
     Shared nuevaEstructura As New Dictionary(Of String, List(Of String))()
 
@@ -91,82 +91,49 @@ Public Class AdministradorEstructuras
     Public Shared Sub AñadeEstructura(ByVal estructura As String, ByVal palabra As String)
         Select Case estructura
             Case "Verbos"
-                AdministraVerbos(palabra)
+                verbos.Add(palabra)
+                EnviaVerbos()
             Case "Articulos"
-                AdministraArticulos(palabra)
+                articulos.Add(palabra)
+                EnviaArticulos()
             Case "Vocales"
-                AdministraVocales(palabra)
+                vocales.Add(palabra)
+                EnviaVocales()
             Case "Preposiciones"
-                AdministraPreposiones(palabra)
+                preposiciones.Add(palabra)
+                EnviaPreposiciones()
             Case "Otros"
-                AdministraOtros(palabra)
+                otros.Add(palabra)
+                EnviaOtros()
             Case Else
                 MessageBox.Show("Elija una estructura valida")
         End Select
     End Sub
 
-    Public Shared Sub AdministraVerbos(ByVal verbo)
-        verbos.Add(verbo)
-        EnviaVerbos()
-    End Sub
-    Public Shared Sub AdministraArticulos(ByVal articulo)
-        articulos.Add(articulo)
-        EnviaArticulos()
-    End Sub
-    Public Shared Sub AdministraVocales(ByVal vocal)
-        vocales.Add(vocal)
-        EnviaVocales()
-    End Sub
-    Public Shared Sub AdministraPreposiones(ByVal preposicion)
-        preposiciones.Add(preposicion)
-        EnviaPreposiciones()
-    End Sub
-    Public Shared Sub AdministraOtros(ByVal otro)
-        otros.Add(otro)
-        EnviaOtros()
-    End Sub
-
     Public Shared Function EnviaVerbos() As ArrayList
-        verbos2 = verbos
-        For Each obj In verbos2
-            Console.Write("   {0}", obj)
-        Next obj
-        Console.WriteLine()
-        Return verbos2
+        verbosEnviar = verbos
+        Return verbosEnviar
     End Function
 
     Public Shared Function EnviaArticulos() As ArrayList
-        articulos2 = articulos
-        For Each obj In articulos
-            Console.WriteLine("   {0}", obj)
-        Next
-        Return articulos2
+        articulosEnviar = articulos
+        Return articulosEnviar
     End Function
 
     Public Shared Function EnviaVocales() As ArrayList
         Dim vocales2 As ArrayList
         vocales2 = vocales
-        For Each obj In vocales
-            Console.WriteLine("   {0}", obj)
-        Next
         Return vocales2
     End Function
 
     Public Shared Function EnviaPreposiciones() As ArrayList
         Dim preposiciones2 As ArrayList
         preposiciones2 = preposiciones
-        For Each obj In preposiciones
-            Console.WriteLine("   {0}", obj)
-        Next
         Return preposiciones2
     End Function
     Public Shared Function EnviaOtros() As ArrayList
-        otros2 = otros
-        For Each obj In otros2
-            Console.Write("   {0}", obj)
-        Next obj
-        Console.WriteLine()
-        Return otros2
+        otrosEnviar = otros
+        Return otrosEnviar
     End Function
     Public Shared Sub EliminaPalabra(ByVal estructuraEliminar, ByVal palabra)
         Dim estructura As New ArrayList()
@@ -201,12 +168,6 @@ Public Class AdministradorEstructuras
         If estructuraEliminar = "Preposiciones" Then
             preposiciones = estructuraEliminada
         End If
-        Dim obj As [Object]
-        For Each obj In estructuraEliminada
-
-            Console.Write("   {0}", obj)
-        Next obj
-        Console.WriteLine()
     End Sub
     Public Shared Sub GuardarArraylistVerbos()
         Dim append As Boolean = True
