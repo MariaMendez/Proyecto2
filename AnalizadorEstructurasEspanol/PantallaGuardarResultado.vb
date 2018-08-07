@@ -20,15 +20,15 @@ Public Class PantallaGuardarResultado
                               "Guardar XML",
                               MessageBoxButtons.OK)
         If DialogResult.OK Then
-            Dim resultado2 As Integer = MessageBox.Show("¿Desea clasificar las palabras no identificadas? ",
+            Dim resultado As Integer = MessageBox.Show("¿Desea clasificar las palabras no identificadas? ",
                             "Clasificar",
                             MessageBoxButtons.YesNo)
             ' MessageBoxButtons.YesNo.GetName(1,"Sí")
 
-            If (resultado2 = DialogResult.Yes) Then
+            If (resultado = DialogResult.Yes) Then
                 PantallaClasificarPalabras.Show()
             End If
-            If (resultado2 = DialogResult.No) Then
+            If (resultado = DialogResult.No) Then
                 Me.Close()
                 PantallaPrincipal.BringToFront()
             End If
@@ -48,15 +48,15 @@ Public Class PantallaGuardarResultado
                              "Guardar JSON",
                              MessageBoxButtons.OK)
         If DialogResult.OK Then
-            Dim resultado2 As Integer = MessageBox.Show("¿Desea clasificar las palabras no identificadas? ",
+            Dim resultado As Integer = MessageBox.Show("¿Desea clasificar las palabras no identificadas? ",
                             "Clasificar",
                             MessageBoxButtons.YesNo)
             ' MessageBoxButtons.YesNo.GetName(1,"Sí")
 
-            If (resultado2 = DialogResult.Yes) Then
+            If (resultado = DialogResult.Yes) Then
                 PantallaClasificarPalabras.Show()
             End If
-            If (resultado2 = DialogResult.No) Then
+            If (resultado = DialogResult.No) Then
                 Me.Close()
                 PantallaPrincipal.BringToFront()
             End If
