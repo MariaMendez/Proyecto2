@@ -8,6 +8,8 @@
     End Sub
 
     Private Sub PantallaPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        AdministradorEstructuras.VerificaPaths()
+        PantallaGuardarResultado.VerificaPathJson()
         AdministradorEstructuras.AsignaArraylistVerbos()
         AdministradorEstructuras.AsignaArraylistArticulos()
         AdministradorEstructuras.AsignaArraylistVocales()

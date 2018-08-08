@@ -27,14 +27,13 @@ Partial Class PantallaAdministrar
         Me.txtPalabra = New System.Windows.Forms.TextBox()
         Me.lblEstructura = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.dgvEstructuras = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnAñadir = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnSalir = New System.Windows.Forms.Button()
-        CType(Me.dgvEstructuras, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.lbxEstructuras = New System.Windows.Forms.ListBox()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -76,14 +75,6 @@ Partial Class PantallaAdministrar
         Me.Label1.Size = New System.Drawing.Size(59, 16)
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "Palabra:"
-        '
-        'dgvEstructuras
-        '
-        Me.dgvEstructuras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvEstructuras.Location = New System.Drawing.Point(1, 212)
-        Me.dgvEstructuras.Name = "dgvEstructuras"
-        Me.dgvEstructuras.Size = New System.Drawing.Size(726, 232)
-        Me.dgvEstructuras.TabIndex = 5
         '
         'Panel1
         '
@@ -150,12 +141,26 @@ Partial Class PantallaAdministrar
         Me.btnSalir.BackColor = System.Drawing.SystemColors.Control
         Me.btnSalir.Image = Global.AnalizadorEstructurasEspanol.My.Resources.Resources.salida
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSalir.Location = New System.Drawing.Point(641, 174)
+        Me.btnSalir.Location = New System.Drawing.Point(641, 328)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(73, 32)
         Me.btnSalir.TabIndex = 8
         Me.btnSalir.Text = "Salir:"
         Me.btnSalir.UseVisualStyleBackColor = False
+        '
+        'lbxEstructuras
+        '
+        Me.lbxEstructuras.BackColor = System.Drawing.SystemColors.Control
+        Me.lbxEstructuras.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbxEstructuras.ForeColor = System.Drawing.Color.Teal
+        Me.lbxEstructuras.FormattingEnabled = True
+        Me.lbxEstructuras.ItemHeight = 15
+        Me.lbxEstructuras.Location = New System.Drawing.Point(299, 192)
+        Me.lbxEstructuras.MultiColumn = True
+        Me.lbxEstructuras.Name = "lbxEstructuras"
+        Me.lbxEstructuras.SelectionMode = System.Windows.Forms.SelectionMode.None
+        Me.lbxEstructuras.Size = New System.Drawing.Size(188, 139)
+        Me.lbxEstructuras.TabIndex = 11
         '
         'PantallaAdministrar
         '
@@ -163,14 +168,13 @@ Partial Class PantallaAdministrar
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLight
         Me.ClientSize = New System.Drawing.Size(726, 372)
+        Me.Controls.Add(Me.lbxEstructuras)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnSalir)
-        Me.Controls.Add(Me.dgvEstructuras)
         Me.Name = "PantallaAdministrar"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Administrador Estructuras"
-        CType(Me.dgvEstructuras, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -183,10 +187,10 @@ Partial Class PantallaAdministrar
     Friend WithEvents btnAñadir As Button
     Friend WithEvents lblEstructura As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents dgvEstructuras As DataGridView
     Friend WithEvents btnEliminar As Button
     Friend WithEvents btnBuscar As Button
     Friend WithEvents btnSalir As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents lbxEstructuras As ListBox
 End Class

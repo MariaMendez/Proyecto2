@@ -24,12 +24,12 @@ Partial Class PantallaClasificarPalabras
     Private Sub InitializeComponent()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.lblPreclasificar = New System.Windows.Forms.Label()
-        Me.lvbPalabras = New System.Windows.Forms.ListView()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnAñadir = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.cbxEstructuras = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lbxPalabras = New System.Windows.Forms.ListBox()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -56,16 +56,6 @@ Partial Class PantallaClasificarPalabras
         Me.lblPreclasificar.Size = New System.Drawing.Size(58, 13)
         Me.lblPreclasificar.TabIndex = 4
         Me.lblPreclasificar.Text = "Estructura:"
-        '
-        'lvbPalabras
-        '
-        Me.lvbPalabras.BackColor = System.Drawing.SystemColors.Control
-        Me.lvbPalabras.Location = New System.Drawing.Point(21, 39)
-        Me.lvbPalabras.Name = "lvbPalabras"
-        Me.lvbPalabras.Size = New System.Drawing.Size(193, 155)
-        Me.lvbPalabras.Sorting = System.Windows.Forms.SortOrder.Ascending
-        Me.lvbPalabras.TabIndex = 7
-        Me.lvbPalabras.UseCompatibleStateImageBehavior = False
         '
         'Label1
         '
@@ -102,6 +92,14 @@ Partial Class PantallaClasificarPalabras
         Me.Panel1.Size = New System.Drawing.Size(333, 100)
         Me.Panel1.TabIndex = 11
         '
+        'cbxEstructuras
+        '
+        Me.cbxEstructuras.FormattingEnabled = True
+        Me.cbxEstructuras.Location = New System.Drawing.Point(93, 31)
+        Me.cbxEstructuras.Name = "cbxEstructuras"
+        Me.cbxEstructuras.Size = New System.Drawing.Size(135, 21)
+        Me.cbxEstructuras.TabIndex = 10
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -113,13 +111,14 @@ Partial Class PantallaClasificarPalabras
         Me.Label2.TabIndex = 12
         Me.Label2.Text = "Preclasificación:"
         '
-        'cbxEstructuras
+        'lbxPalabras
         '
-        Me.cbxEstructuras.FormattingEnabled = True
-        Me.cbxEstructuras.Location = New System.Drawing.Point(93, 31)
-        Me.cbxEstructuras.Name = "cbxEstructuras"
-        Me.cbxEstructuras.Size = New System.Drawing.Size(135, 21)
-        Me.cbxEstructuras.TabIndex = 10
+        Me.lbxPalabras.FormattingEnabled = True
+        Me.lbxPalabras.Location = New System.Drawing.Point(24, 39)
+        Me.lbxPalabras.Name = "lbxPalabras"
+        Me.lbxPalabras.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
+        Me.lbxPalabras.Size = New System.Drawing.Size(184, 160)
+        Me.lbxPalabras.TabIndex = 0
         '
         'PantallaClasificarPalabras
         '
@@ -127,10 +126,10 @@ Partial Class PantallaClasificarPalabras
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLight
         Me.ClientSize = New System.Drawing.Size(729, 298)
+        Me.Controls.Add(Me.lbxPalabras)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.lvbPalabras)
         Me.Controls.Add(Me.btnGuardar)
         Me.Name = "PantallaClasificarPalabras"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -143,10 +142,10 @@ Partial Class PantallaClasificarPalabras
     End Sub
     Friend WithEvents btnGuardar As Button
     Friend WithEvents lblPreclasificar As Label
-    Friend WithEvents lvbPalabras As ListView
     Friend WithEvents Label1 As Label
     Friend WithEvents btnAñadir As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label2 As Label
     Friend WithEvents cbxEstructuras As ComboBox
+    Friend WithEvents lbxPalabras As ListBox
 End Class

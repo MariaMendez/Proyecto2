@@ -2,6 +2,11 @@
 Imports AnalizadorEstructurasEspanol.AdministradorEstructuras
 Public Class PantallaAdministrar
     Dim estructuras As New ArrayList()
+    Dim verbos As ArrayList = AdministradorEstructuras.EnviaVerbos()
+    Dim articulos As ArrayList = AdministradorEstructuras.EnviaArticulos()
+    Dim vocales As ArrayList = AdministradorEstructuras.EnviaVocales()
+    Dim preposiciones As ArrayList = AdministradorEstructuras.EnviaPreposiciones()
+    Dim otros As ArrayList = AdministradorEstructuras.EnviaOtros()
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnAñadir.Click
         AñadeEstructura(cbxEstructuras.SelectedItem, txtPalabra.Text)
@@ -17,14 +22,9 @@ Public Class PantallaAdministrar
         cbxEstructuras.Items.Add("Vocales")
         cbxEstructuras.Items.Add("Otros")
     End Sub
-    Private Sub Cabezera()
-        dgvEstructuras.Columns.Add(1, "Estructura")
-        dgvEstructuras.Columns.Add(2, "Palabras")
-    End Sub
 
     Private Sub PantallaAdministrar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call RellenaCampos()
-        Call Cabezera()
     End Sub
 
     Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
@@ -32,10 +32,6 @@ Public Class PantallaAdministrar
         MessageBox.Show("Se ha eliminado corrrectamente",
                             "Añadir",
                             MessageBoxButtons.OK)
-    End Sub
-
-    Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-
     End Sub
 
     Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
@@ -50,4 +46,35 @@ Public Class PantallaAdministrar
     Public Sub RecibeEstructuras(ByVal estructuraAnadir As ArrayList)
         estructuras = estructuraAnadir
     End Sub
+
+    Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+        lbxEstructuras.Items.Clear()
+        If cbxEstructuras.SelectedItem = "Verbos" Then
+            For Each item In verbos
+                lbxEstructuras.Items.Add(item)
+            Next
+        End If
+        If cbxEstructuras.SelectedItem = "Articulos" Then
+            For Each item In articulos
+                lbxEstructuras.Items.Add(item)
+            Next
+        End If
+        If cbxEstructuras.SelectedItem = "Vocales" Then
+            For Each item In vocales
+                lbxEstructuras.Items.Add(item)
+            Next
+        End If
+        If cbxEstructuras.SelectedItem = "Preposiciones" Then
+            For Each item In preposiciones
+                lbxEstructuras.Items.Add(item)
+            Next
+        End If
+        If cbxEstructuras.SelectedItem = "Otros" Then
+            For Each item In otros
+                lbxEstructuras.Items.Add(item)
+            Next
+        End If
+
+    End Sub
+
 End Class

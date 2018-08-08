@@ -6,6 +6,15 @@ Imports Newtonsoft.Json
 
 Public Class PantallaGuardarResultado
     Dim resultadosGuardar As New Dictionary(Of String, Integer)()
+    Public Shared Sub VerificaPathJson()
+        Dim nombreArchivoJson As String = ".\json"
+        If (Not System.IO.Directory.Exists(nombreArchivoJson)) Then
+            System.IO.Directory.CreateDirectory(nombreArchivoJson)
+            File.Create(nombreArchivoJson + "\resultados.json").Dispose()
+        Else
+            Exit Sub
+        End If
+    End Sub
     Private Sub BtnXML_Click(sender As Object, e As EventArgs) Handles btnXML.Click
         Dim documento As XmlDocument = New XmlDocument()
         documento.LoadXml("<resultados></resultados>")
@@ -26,6 +35,7 @@ Public Class PantallaGuardarResultado
             ' MessageBoxButtons.YesNo.GetName(1,"Sí")
 
             If (resultado = DialogResult.Yes) Then
+                Me.Close()
                 PantallaClasificarPalabras.Show()
             End If
             If (resultado = DialogResult.No) Then
@@ -33,7 +43,6 @@ Public Class PantallaGuardarResultado
                 PantallaPrincipal.BringToFront()
             End If
         End If
-
     End Sub
 
     Public Function RecibeResultados(ByVal resultadosRecibidos As Dictionary(Of String, Integer))
@@ -43,7 +52,7 @@ Public Class PantallaGuardarResultado
     End Function
 
     Private Sub btnJason_Click(sender As Object, e As EventArgs) Handles btnJason.Click
-        File.WriteAllText("...\json\resultado.json", JsonConvert.SerializeObject(resultadosGuardar))
+        File.WriteAllText(".\json\resultado.json", JsonConvert.SerializeObject(resultadosGuardar))
         MessageBox.Show("Se ha guardado el JSON correctamente ",
                              "Guardar JSON",
                              MessageBoxButtons.OK)
@@ -54,6 +63,7 @@ Public Class PantallaGuardarResultado
             ' MessageBoxButtons.YesNo.GetName(1,"Sí")
 
             If (resultado = DialogResult.Yes) Then
+                Me.Close()
                 PantallaClasificarPalabras.Show()
             End If
             If (resultado = DialogResult.No) Then
@@ -61,5 +71,7 @@ Public Class PantallaGuardarResultado
                 PantallaPrincipal.BringToFront()
             End If
         End If
+
     End Sub
+
 End Class
