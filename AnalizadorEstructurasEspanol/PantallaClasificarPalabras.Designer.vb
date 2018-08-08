@@ -113,6 +113,7 @@ Partial Class PantallaClasificarPalabras
         '
         'lbxPalabras
         '
+        Me.lbxPalabras.BackColor = System.Drawing.SystemColors.Control
         Me.lbxPalabras.FormattingEnabled = True
         Me.lbxPalabras.Location = New System.Drawing.Point(24, 39)
         Me.lbxPalabras.Name = "lbxPalabras"

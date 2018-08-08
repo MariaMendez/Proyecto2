@@ -73,6 +73,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property busqueda() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("busqueda", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property libro_abierto() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("libro-abierto", resourceCulture)
@@ -96,6 +106,16 @@ Namespace My.Resources
         Friend ReadOnly Property libros() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("libros", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property lupa() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("lupa", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

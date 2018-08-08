@@ -28,13 +28,15 @@ Partial Class PantallaAdministrar
         Me.lblEstructura = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lbxEstructuras = New System.Windows.Forms.ListBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnAñadir = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnSalir = New System.Windows.Forms.Button()
-        Me.lbxEstructuras = New System.Windows.Forms.ListBox()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -91,6 +93,38 @@ Partial Class PantallaAdministrar
         Me.Panel1.Size = New System.Drawing.Size(466, 126)
         Me.Panel1.TabIndex = 9
         '
+        'lbxEstructuras
+        '
+        Me.lbxEstructuras.BackColor = System.Drawing.SystemColors.Control
+        Me.lbxEstructuras.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbxEstructuras.ForeColor = System.Drawing.Color.Teal
+        Me.lbxEstructuras.FormattingEnabled = True
+        Me.lbxEstructuras.ItemHeight = 15
+        Me.lbxEstructuras.Location = New System.Drawing.Point(262, 192)
+        Me.lbxEstructuras.MultiColumn = True
+        Me.lbxEstructuras.Name = "lbxEstructuras"
+        Me.lbxEstructuras.SelectionMode = System.Windows.Forms.SelectionMode.None
+        Me.lbxEstructuras.Size = New System.Drawing.Size(225, 139)
+        Me.lbxEstructuras.TabIndex = 11
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.AnalizadorEstructurasEspanol.My.Resources.Resources.busqueda
+        Me.PictureBox2.Location = New System.Drawing.Point(64, 192)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(151, 139)
+        Me.PictureBox2.TabIndex = 12
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.AnalizadorEstructurasEspanol.My.Resources.Resources.pregunta
+        Me.PictureBox1.Location = New System.Drawing.Point(549, 22)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(127, 126)
+        Me.PictureBox1.TabIndex = 10
+        Me.PictureBox1.TabStop = False
+        '
         'btnBuscar
         '
         Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
@@ -127,47 +161,25 @@ Partial Class PantallaAdministrar
         Me.btnAñadir.Text = "   Añadir"
         Me.btnAñadir.UseVisualStyleBackColor = False
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.AnalizadorEstructurasEspanol.My.Resources.Resources.pregunta
-        Me.PictureBox1.Location = New System.Drawing.Point(549, 22)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(127, 126)
-        Me.PictureBox1.TabIndex = 10
-        Me.PictureBox1.TabStop = False
-        '
         'btnSalir
         '
         Me.btnSalir.BackColor = System.Drawing.SystemColors.Control
         Me.btnSalir.Image = Global.AnalizadorEstructurasEspanol.My.Resources.Resources.salida
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSalir.Location = New System.Drawing.Point(641, 328)
+        Me.btnSalir.Location = New System.Drawing.Point(652, 300)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(73, 32)
+        Me.btnSalir.Size = New System.Drawing.Size(73, 39)
         Me.btnSalir.TabIndex = 8
         Me.btnSalir.Text = "Salir:"
         Me.btnSalir.UseVisualStyleBackColor = False
-        '
-        'lbxEstructuras
-        '
-        Me.lbxEstructuras.BackColor = System.Drawing.SystemColors.Control
-        Me.lbxEstructuras.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbxEstructuras.ForeColor = System.Drawing.Color.Teal
-        Me.lbxEstructuras.FormattingEnabled = True
-        Me.lbxEstructuras.ItemHeight = 15
-        Me.lbxEstructuras.Location = New System.Drawing.Point(299, 192)
-        Me.lbxEstructuras.MultiColumn = True
-        Me.lbxEstructuras.Name = "lbxEstructuras"
-        Me.lbxEstructuras.SelectionMode = System.Windows.Forms.SelectionMode.None
-        Me.lbxEstructuras.Size = New System.Drawing.Size(188, 139)
-        Me.lbxEstructuras.TabIndex = 11
         '
         'PantallaAdministrar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.ClientSize = New System.Drawing.Size(726, 372)
+        Me.ClientSize = New System.Drawing.Size(737, 351)
+        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.lbxEstructuras)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel1)
@@ -177,6 +189,7 @@ Partial Class PantallaAdministrar
         Me.Text = "Administrador Estructuras"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -193,4 +206,5 @@ Partial Class PantallaAdministrar
     Friend WithEvents Panel1 As Panel
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents lbxEstructuras As ListBox
+    Friend WithEvents PictureBox2 As PictureBox
 End Class
